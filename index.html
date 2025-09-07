@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- The 'dark' class will be toggled here -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web Pages with Vanilla JS</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <header>
+            <h1>JavaScript Interactivity Hub</h1>
+            <button id="darkModeToggle">
+                <!-- Sun Icon -->
+                <svg id="sunIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <!-- Moon Icon -->
+                <svg id="moonIcon" class="hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+        </header>
+
+        <div class="page-wrapper">
+
+            <!-- Part 1: JavaScript Event Handling -->
+            <section class="card">
+                <h2>Part 1: Event Handling</h2>
+                <div class="event-grid">
+                    <div class="event-row">
+                        <!-- Click Event -->
+                        <div class="event-card">
+                            <h3>Click Event</h3>
+                            <p>Click the button to reveal a secret message.</p>
+                            <button id="messageBtn" class="button">Show Message</button>
+                            <p id="hiddenMessage" class="hidden">🎉 JavaScript makes web pages interactive!</p>
+                        </div>
+                        <!-- Mouseover Event -->
+                        <div class="event-card">
+                             <h3>Mouseover Event</h3>
+                            <p>Hover over the box to change its color.</p>
+                            <div id="hoverBox">Hover over me!</div>
+                        </div>
+                    </div>
+                    <div class="event-row">
+                        <!-- Keyup Event -->
+                        <div class="event-card">
+                            <h3>Keyup Event</h3>
+                            <p>Type something and press 'Enter'.</p>
+                            <input type="text" id="keyInput" class="input-field" placeholder="Press Enter here...">
+                            <p id="keyMessage" class="hidden">You pressed Enter!</p>
+                        </div>
+                        <!-- Input Event -->
+                        <div class="event-card">
+                            <h3>Input Event (Live Feedback)</h3>
+                            <p>Type in the box for a live character count.</p>
+                            <input type="text" id="liveInput" class="input-field" maxlength="100" placeholder="Type here...">
+                            <p class="char-counter"><span id="charCount">0</span> / 100</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 2: Interactive Elements -->
+            <section class="card">
+                <h2>Part 2: Interactive Elements</h2>
+                <div>
+                    <h3>Collapsible FAQ Section</h3>
+                    <div class="faq-list">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What is the DOM?</span>
+                                <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer">
+                                <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content.</p>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>What are event listeners?</span>
+                                <svg class="faq-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                            <div class="faq-answer">
+                                <p>An event listener is a procedure or function in a computer program that waits for an event to occur. In JavaScript, we use `element.addEventListener()` to listen for events like clicks, key presses, or mouse movements on HTML elements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part 3: Form Validation -->
+            <section class="card">
+                <h2>Part 3: Form Validation</h2>
+                <p>Submit the form to see client-side validation in action. No HTML5 `required` attributes are used.</p>
+                <div id="form-message" class="hidden"></div>
+                <form id="contactForm" novalidate>
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" class="input-field">
+                        <p class="error-text"></p>
+                    </div>
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="input-field">
+                         <p class="error-text"></p>
+                    </div>
+                     <!-- Password Field -->
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="input-field">
+                         <p class="error-text"></p>
+                    </div>
+                    <!-- Submit Button -->
+                    <div>
+                        <button type="submit" class="button">Register</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
